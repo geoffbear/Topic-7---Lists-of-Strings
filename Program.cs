@@ -92,6 +92,11 @@
                         Console.WriteLine(i + ". " + veg[i]);
                     
                     Console.WriteLine("Press Enter to say goodbye :(");
+                    veg.Clear();
+                    Console.WriteLine("Here it is cleared:");
+                    for (int i = 0; i < veg.Count; i++)
+                        Console.WriteLine(i + ". " + veg[i]);
+                    Console.WriteLine("Press Enter to quit");
                     Console.ReadLine();
                     menu = false;
                 }
