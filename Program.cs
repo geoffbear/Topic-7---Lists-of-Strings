@@ -13,7 +13,7 @@ namespace Topic_7___Lists_of_Strings
             veg.Add("CARROT"); veg.Add("BEET"); veg.Add("CELERY"); veg.Add("RADISH"); veg.Add("CABBAGE");
             bool menu = true;
             int option;
-            string add;
+            string add, contain;
             while (menu) 
             {
                 Console.WriteLine("Welcome to Geoffrey's Glorious Garden.");
@@ -61,7 +61,12 @@ namespace Topic_7___Lists_of_Strings
                 {
                     Console.WriteLine();
                     Console.WriteLine("Press Enter to continue.");
-                    Console.ReadLine();
+                    contain = Console.ReadLine().ToUpper(); 
+
+                    if (veg.Contains(contain))
+                    {
+                        Console.WriteLine("Your list ");
+                    }
                 }
 
                 else if (option == 4)
