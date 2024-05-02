@@ -12,7 +12,7 @@ namespace Topic_7___Lists_of_Strings
             List<string> veg = new List<string>();
             veg.Add("CARROT"); veg.Add("BEET"); veg.Add("CELERY"); veg.Add("RADISH"); veg.Add("CABBAGE");
             bool menu = true;
-            int option;
+            int option, postion;
             string add, contain;
             while (menu) 
             {
@@ -59,14 +59,29 @@ namespace Topic_7___Lists_of_Strings
 
                 else if (option == 3)
                 {
+                    Console.WriteLine("Search for a vegetable please.");
                     Console.WriteLine();
-                    Console.WriteLine("Press Enter to continue.");
                     contain = Console.ReadLine().ToUpper(); 
 
                     if (veg.Contains(contain))
                     {
-                        Console.WriteLine("Your list ");
+                        Console.WriteLine("Your garden contains the vegetable: " + contain.ToUpper() + ".");
                     }
+                    else if (!veg.Contains(contain))
+                    {
+                        Console.WriteLine("It seems your garden does not contain the vegetable: " + contain + ".");
+                    }
+
+                    for (int i = 0; i < veg.Count; i++)
+                    {
+                        if (veg[i] == contain)
+                        {
+                            Console.WriteLine("Your vegetable is planted at the #" + (i + 1) + " postion in your garden");
+                        }
+                    }
+                    
+                    Console.WriteLine("Press Enter to continue");
+                    Console.ReadLine();
                 }
 
                 else if (option == 4)
