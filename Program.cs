@@ -13,7 +13,7 @@ namespace Topic_7___Lists_of_Strings
             veg.Add("CARROT"); veg.Add("BEET"); veg.Add("CELERY"); veg.Add("RADISH"); veg.Add("CABBAGE");
             bool menu = true;
             int option, postion;
-            string add, contain;
+            string add, contain, remove;
             while (menu) 
             {
                 Console.WriteLine("Welcome to Geoffrey's Glorious Garden.");
@@ -22,8 +22,8 @@ namespace Topic_7___Lists_of_Strings
                 for (int i = 0; i < veg.Count; i++)
                     Console.WriteLine(i + ". " + veg[i]);
                 Console.WriteLine();
-                Console.WriteLine("1 -- Pick a vegetable using its numerical index.");
-                Console.WriteLine("2 -- Pick a vegetable by its name.");
+                Console.WriteLine("1 -- Pick a vegetable using its numerical index and remove it.");
+                Console.WriteLine("2 -- Pick a vegetable by its name and remove it.");
                 Console.WriteLine("3 -- Search for a vegetable.");
                 Console.WriteLine("4 -- Plant a vegetable.");
                 Console.WriteLine("5 -- Sort the garden.");
@@ -33,27 +33,35 @@ namespace Topic_7___Lists_of_Strings
 
                 if (option == 1)
                 {
-                    Console.WriteLine("Here is your garden:");
-                    for (int i = 0; i < veg.Count; i++)
-                    {
-                        Console.WriteLine(i + ". " + veg[i]);
 
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine("Press Enter to continue.");
-                    Console.ReadLine();
                 }
 
                 else if (option == 2) 
                 {
-                    Console.WriteLine("Here is your garden:");
-                    for (int i = 0; i < veg.Count; i++)
+                    Console.WriteLine("Search for a vegetable to remove.");
+                    remove = Console.ReadLine().ToUpper();
+                    if (veg.Contains(remove))
                     {
-                        Console.WriteLine(i + ". " + veg[i]);
-
+                        veg.Remove(remove);
+                        Console.WriteLine("Vegetable located...");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Removing...");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("Vegetable succesfully removed.");
+                        Console.WriteLine();
+                        Console.WriteLine("Here is your new garden:");
+                        for (int i = 0; i < veg.Count; i++)
+                        {
+                            Console.WriteLine(i + ". " + veg[i]);
+                        }
                     }
-                    Console.WriteLine();
-                    Console.WriteLine("Press Enter to continue.");
+                    else
+                    {
+                        Console.WriteLine("Locating vegetable...");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("ERROR 404: vegetable not found");
+                    }
+                    Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
                 }
 
