@@ -12,7 +12,7 @@ namespace Topic_7___Lists_of_Strings
             List<string> veg = new List<string>();
             veg.Add("CARROT"); veg.Add("BEET"); veg.Add("CELERY"); veg.Add("RADISH"); veg.Add("CABBAGE");
             bool menu = true;
-            int option, postion;
+            int option, postion, removeNum;
             string add, contain, remove;
             while (menu) 
             {
@@ -33,7 +33,20 @@ namespace Topic_7___Lists_of_Strings
 
                 if (option == 1)
                 {
+                    Console.WriteLine("Search for a vegetable via its number");
 
+                    while (!Int32.TryParse(Console.ReadLine(), out removeNum))
+                        Console.WriteLine("Invalid Numeric Input.  Try again.");
+
+                    veg.Remove(veg[removeNum]);
+
+                    for (int i = 0; i < veg.Count; i++)
+                    {
+                        Console.WriteLine(i + ". " + veg[i]);
+                    }
+
+                    Console.WriteLine("Press Enter to continue");
+                    Console.ReadLine();
                 }
 
                 else if (option == 2) 
